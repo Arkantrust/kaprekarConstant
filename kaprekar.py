@@ -103,3 +103,5 @@ while True:
 #---------------------------------------------------------------------------------
 
 print(f"The number {number} reaches Krapekar's constant after {process} iterations")
+
+
