@@ -18,19 +18,12 @@ def has_different_digits(number_string: str) -> bool:
     return has_different
 
 
-def subtract_ordered_lists(minuend_list: list[str], subtrahend_list: list[str]) -> int:
-    minuend_str = ''.join(minuend_list)
-    subtrahend_str = ''.join(subtrahend_list)
-    return int(minuend_str) - int(subtrahend_str)
-
-
 def perform_iteration(number: int) -> int:
     number = str(number)
     digits_list = [number[i] for i in range(4)]
     descending_list = sorted(digits_list, reverse=True)
     ascending_list = sorted(digits_list)
-    result = subtract_ordered_lists(descending_list, ascending_list)
-    return result
+    return int(''.join(descending_list)) - int(''.join(ascending_list))
 
 
 def kaprekar(candidate: int) -> str:
