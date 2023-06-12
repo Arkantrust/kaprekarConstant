@@ -5,10 +5,6 @@ eventually we will get Kaprekar's constant = 6174.
 KAPREKAR_CONSTANT = 6174
 
 
-def int_to_list(num: str) -> list[str]:
-    return [num[n] for n in range(4)]
-
-
 def has_different_digits(number_string: str) -> bool:
     has_different = True
     for digit in range(3):
@@ -30,7 +26,7 @@ def subtract_ordered_lists(minuend_list: list[str], subtrahend_list: list[str]) 
 
 def perform_iteration(number: int) -> int:
     number = str(number)
-    digits_list = int_to_list(number)
+    digits_list = [number[i] for i in range(4)]
     descending_list = sorted(digits_list, reverse=True)
     ascending_list = sorted(digits_list)
     result = subtract_ordered_lists(descending_list, ascending_list)
