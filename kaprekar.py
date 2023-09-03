@@ -1,24 +1,25 @@
-def kaprekar(candidate: int) -> int:
+def kaprekar(candidate: int) -> int | None:
     """
-    The function takes a 4-digit integer with at least 2 different digits and returns the number of
-    iterations it takes to reach Kaprekar's constant.
+    The `kaprekar` function takes an integer `candidate` and returns the number of
+    iterations it takes to reach the Kaprekar constant 6174.
 
-    :param candidate: The input number that we want to check if it can be transformed into Kaprekar's
-    constant through a series of operations
+    :param candidate: The `candidate` parameter is an integer representing the number
+    for which we want to find the number of iterations required to reach the
+    Kaprekar's constant
     :type candidate: int
-    :return: the number of iterations it takes for a given 4-digit integer to reach Kaprekar's constant
-    (6174) using the Kaprekar routine. If the input is not a valid 4-digit integer with at least 2
-    different digits, an error message is returned.
+    :return: The function `kaprekar` returns the number of iterations it takes
+    for the given candidate number to reach the Kaprekar's constant 6174.
     """
     if candidate < 1000 or candidate > 9999 or len(set(str(candidate))) < 2:
-        return "The number must be a 4-digit integer with at least 2 different digits"
+        return None
 
     number = candidate
     iterations = 0
 
     while number != 6174:
         number_str = str(number)
-        number = int("".join(sorted(number_str, reverse=True))) - int("".join(sorted(number_str))
+        number = int("".join(sorted(number_str, reverse=True))) - int(
+            "".join(sorted(number_str))
         )
         iterations += 1
 
